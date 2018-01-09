@@ -54,14 +54,22 @@
 		70830414200566D00015110A /* ProstheticsApp */ = {
 			isa = PBXGroup;
 			children = (
-				70830415200566D00015110A /* AppDelegate.swift */,
 				70830417200566D00015110A /* ViewController.swift */,
 				70830419200566D00015110A /* Main.storyboard */,
+				708304272005681B0015110A /* Supporting Files */,
+			);
+			path = ProstheticsApp;
+			sourceTree = "<group>";
+		};
+		708304272005681B0015110A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70830415200566D00015110A /* AppDelegate.swift */,
 				7083041C200566D00015110A /* Assets.xcassets */,
 				7083041E200566D00015110A /* LaunchScreen.storyboard */,
 				70830421200566D00015110A /* Info.plist */,
 			);
-			path = ProstheticsApp;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
