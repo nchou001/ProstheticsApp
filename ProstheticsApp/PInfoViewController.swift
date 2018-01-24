@@ -1,25 +1,21 @@
 //
-//  PDACViewController.swift
+//  PInfoViewController.swift
 //  ProstheticsApp
 //
-//  Created by Nathaniel Choung on 1/16/18.
+//  Created by Nathaniel Choung on 1/23/18.
 //  Copyright © 2018 ST&G. All rights reserved.
 //
 
 import UIKit
 
-struct SearchParameters {
-    var pdacVariable = 0
-    var kLevel = 0
-    var weight = 0.0
-    var mtpToFloor = 0.0
-    var footBuildHeight = 0.0
-}
+class PInfoViewController: UIViewController {
 
-var searchParam = SearchParameters()
-
-class PDACViewController: UIViewController {
-
+    @IBOutlet weak var weightField: UITextField!
+    
+    @IBOutlet weak var mtpField: UITextField!
+    
+    @IBOutlet weak var fbhField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,9 +28,16 @@ class PDACViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        searchParam.pdacVariable = sender.tag
+        if let weightTemp = Double(weightField.text!){
+            searchParam.weight = weightTemp
+        }
+        if let mtpTemp = Double(mtpField.text!){
+            searchParam.mtpToFloor = mtpTemp
+        }
+        if let fbhTemp = Double(fbhField.text!){
+            searchParam.footBuildHeight = fbhTemp
+        }
     }
-    
     
     /*
     // MARK: - Navigation
