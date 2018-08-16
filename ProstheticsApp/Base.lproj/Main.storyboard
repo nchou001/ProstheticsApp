@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -237,29 +238,100 @@
         <scene sceneID="T3t-Gh-n9y">
             <objects>
                 <tableViewController id="LZT-5I-VLl" customClass="KneeListViewController" customModule="ProstheticsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6s1-Uw-ozi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6s1-Uw-ozi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kfe-9s-gRo">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="kfe-9s-gRo" customClass="KneeListTableViewCell" customModule="ProstheticsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kfe-9s-gRo" id="w0K-i4-Hcj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8d1-vb-Uks">
+                                            <rect key="frame" x="16" y="11" width="156" height="178"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="156" id="OOr-s9-4t6"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-h9-mq7">
+                                            <rect key="frame" x="172" y="11" width="187" height="178"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8d1-vb-Uks" firstAttribute="top" secondItem="w0K-i4-Hcj" secondAttribute="topMargin" id="1E9-gh-lAa"/>
+                                        <constraint firstItem="8d1-vb-Uks" firstAttribute="bottom" secondItem="1OW-h9-mq7" secondAttribute="bottom" id="JIL-bR-bxx"/>
+                                        <constraint firstItem="1OW-h9-mq7" firstAttribute="trailing" secondItem="w0K-i4-Hcj" secondAttribute="trailingMargin" id="JWr-gQ-eJv"/>
+                                        <constraint firstItem="8d1-vb-Uks" firstAttribute="top" secondItem="1OW-h9-mq7" secondAttribute="top" id="S52-LI-hcc"/>
+                                        <constraint firstItem="8d1-vb-Uks" firstAttribute="leading" secondItem="w0K-i4-Hcj" secondAttribute="leadingMargin" id="VQt-nL-7kP"/>
+                                        <constraint firstItem="8d1-vb-Uks" firstAttribute="bottom" secondItem="w0K-i4-Hcj" secondAttribute="bottomMargin" id="VzR-Hd-tr2"/>
+                                        <constraint firstItem="1OW-h9-mq7" firstAttribute="leading" secondItem="8d1-vb-Uks" secondAttribute="trailing" id="dd0-gy-07F"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="myImage" destination="8d1-vb-Uks" id="blL-Yq-mFO"/>
+                                    <outlet property="myLabel" destination="1OW-h9-mq7" id="hoP-gQ-L2u"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="LZT-5I-VLl" id="Hkl-80-RR6"/>
                             <outlet property="delegate" destination="LZT-5I-VLl" id="U49-DA-mlp"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="BlU-3U-Utt" kind="show" identifier="segue" id="Cxn-n5-E06"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mua-Ej-T5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3143" y="116"/>
+            <point key="canvasLocation" x="3141.5999999999999" y="115.59220389805098"/>
+        </scene>
+        <!--Knee Desc View Controller-->
+        <scene sceneID="sXp-9w-m2K">
+            <objects>
+                <viewController id="BlU-3U-Utt" customClass="KneeDescViewController" customModule="ProstheticsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v3c-uD-ORJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kQ-bz-PQo">
+                                <rect key="frame" x="118" y="131" width="139" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfj-8X-iU2">
+                                <rect key="frame" x="67" y="194" width="240" height="215"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spN-yd-Gb2">
+                                <rect key="frame" x="67" y="457" width="240" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UUf-dT-1NW"/>
+                    </view>
+                    <connections>
+                        <outlet property="descLabel" destination="spN-yd-Gb2" id="JDX-5g-Q69"/>
+                        <outlet property="myImage" destination="mfj-8X-iU2" id="3Bt-bw-zGj"/>
+                        <outlet property="serialLabel" destination="9kQ-bz-PQo" id="Wfc-X4-GnF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FHg-N5-yoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3924" y="113.79310344827587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rJa-1H-eVs">

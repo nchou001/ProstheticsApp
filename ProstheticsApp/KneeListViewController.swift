@@ -8,6 +8,7 @@
 
 import UIKit
 
+var myIndex = 0
 struct Knee {
     var serial = String()
     var name = String()
@@ -80,9 +81,17 @@ class KneeListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = filteredArray2[indexPath.row].serial
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! KneeListTableViewCell
+        //cell.textLabel?.text = filteredArray2[indexPath.row].serial
+        //cell.imageView?.image = UIImage(named: filteredArray2[indexPath.row].serial + ".jpg")
+        cell.myImage.image = UIImage(named: (filteredArray2[indexPath.row].serial + ".png"))
+        cell.myLabel.text = filteredArray2[indexPath.row].serial
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myIndex = kneeList.index(where: {$0.serial == filteredArray2[indexPath.row].serial})!
+        performSegue(withIdentifier: "segue", sender: self)
     }
     
     override func viewDidLoad() {
